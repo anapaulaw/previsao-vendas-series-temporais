@@ -7,8 +7,8 @@ Projeto de ciência de dados com foco em previsão de vendas utilizando séries 
 
 1. **Extração e Estruturação**: Leitura do CSV original, separação de tabelas (clientes, produtos, pedidos), criação de banco SQLite e unificação dos dados.
 2. **Análise Exploratória**: Visualizações temporais, sazonalidade e análise de desempenho.
-3. **Modelagem Preditiva**: Aplicação de modelos estatísticos (SARIMA, SARIMAX).
-4. **Visualização e Métricas**: Comparação entre modelos com gráficos e métricas como RMSE e MAE.
+3. **Modelagem Preditiva**: Aplicação de modelos estatístico SARIMA.
+
 
 ##  Estrutura de Pastas
 
