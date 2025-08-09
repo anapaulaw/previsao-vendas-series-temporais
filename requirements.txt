@@ -1,2 +1,6 @@
 pandas
 sqlite3
+streamlit
+matplotlib
+statsmodels
+pmdarima
