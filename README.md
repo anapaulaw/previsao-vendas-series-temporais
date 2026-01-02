@@ -1,85 +1,59 @@
-Este projeto tem como objetivo prever o volume mensal de vendas a partir de dados históricos utilizando modelos estatísticos de séries temporais.
-A abordagem combina técnicas clássicas de modelagem (SARIMA e SARIMAX) com transformações matemáticas (logarítmica) para estabilizar a variância e melhorar a precisão das previsões.
+O principal objetivo desse projeto é construir um pipeline completo de previsão de vendas, partindo de dados transacionais brutos até um modelo confiável, versionado e com deploy em Streamlit. Para isso foi criado tuda a estrutura essencial para construção dessa pipeline desde a quaidade dos dados passo muito importante e que norteia todo e qualquer projeto de data science , abordaremos conceitos de analise de dados, engenharia de dados e por fim ciência de dados.
 
-O estudo inclui análise exploratória, testes de estacionariedade, decomposição da série temporal e avaliação comparativa entre modelos, demonstrando a importância da transformação logarítmica na previsão de séries com tendência e sazonalidade.
-______________________________________________________________________________________________________________________________________
-1 - Objetivos
+O nosso Target principal (forecast) será a receita diária (SalesAmount) e o target secundário a quantidade vendida (OrderQuantity) pois a receita é o KPI mais relevante para negócio
+e a quantidade ajuda a interpretar variações ,explicar picos e validar comportamento do modelo.
 
-Analisar a série temporal de vendas e suas tendências sazonais e cíclicas.
-
-Avaliar a estacionariedade da série com o teste ADF (Dickey-Fuller Aumentado).
-
-Aplicar e comparar modelos SARIMA com e sem transformação logarítmica.
-
-Calcular métricas de desempenho como RMSE e MAE.
-
-Visualizar e interpretar as previsões em relação aos valores observados.
 
 ____________________________________________________________________________________________________________________________________
-2 - Tecnologias Utilizadas
+ETAPAS DO PROJETO:
 
-Python 3.10+
+Passo 1 — Auditoria  dos dados brutos
 
-Pandas e NumPy → manipulação e transformação dos dados
+*  Existem duplicidades?
+*  A frequência temporal é regular?
+*  Existem buracos na série?
+*  Existem valores anômalos?
+*  Os dados são transacionais ou já agregados?
+*  Verificar qual é a granularidade máxima possível 
+*  Definição da série temporal correta
+*  Série diária 
+*  Definir Métricas corretas (receita e quantidade vendida)
+*  Reconstrução da base final com frequência definida sem duplicatas
+*  Pronta para análise de dados etapa seguinte onde foi feita uma analise
 
-Matplotlib e Seaborn → análise visual da série temporal
 
-Statsmodels → modelagem SARIMA/SARIMAX e testes estatísticos
+Passo 2 — EDA
 
-Scikit-learn → métricas de erro (RMSE, MAE)
+*  Análise temporal da receita, quantidade vendida e ticket médio
+*  Comparação entre granularidade diária e mensal
+*  Identificação de tendência, sazonalidade e volatilidade
+*  Decomposição clássica e STL
+*  nálise de autocorrelação (ACF/PACF)
+*  Compreender **tendência**
+*  Identificar **sazonalidades**
+*  Avaliar **estacionariedade**
+*  Definir **insumos corretos para modelagem**
+*  Criar **baselines simples** para comparação futura
 
-Pmdarima → automação de parâmetros ARIMA
 
-Jupyter Notebook → documentação e execução interativa
-___________________________________________________________________________________________________________________________________
-3 - Metodologia (Modelagem Estatística)
-3.1 - Coleta e Tratamento de Dados
 
-Leitura do dataset VendasMensais.csv.
 
-Conversão da coluna de datas (Period) para o formato datetime.
-
-Ordenação e limpeza de dados ausentes.
-
-Limitação da série até o ano de 2020 para treinamento.
-
-3.2 - Análise Exploratória
-
-Visualização da série temporal e suas variações.
-
-Decomposição em componentes tendência, sazonalidade e ruído com seasonal_decompose.
-
-3.3 - Testes Estatísticos
-
-Aplicação do Teste de Dickey-Fuller Aumentado (ADF) para verificar a estacionariedade da série.
-
-Avaliação da necessidade de diferenciação para estabilizar a média.
-
-3.4 - Modelagem e Previsão
-
-Ajuste de modelos SARIMA(p,d,q)(P,D,Q,m).
-
-Inclusão de variáveis exógenas simples (como mês, feriados e eventos comerciais) no SARIMAX.
-
-Comparação entre modelos com e sem transformação logarítmica da variável de vendas.
-
-3.5 - Avaliação de Desempenho
-
-Cálculo de MAE (Erro Absoluto Médio) e RMSE (Raiz do Erro Quadrático Médio).
-
-Comparação entre previsões reais e estimadas.
-
-Gráficos de valores previstos vs. observados para avaliar a aderência.
 __________________________________________________________________________________________________________________________________
-4 - Resultados e Conclusões
 
-A transformação logarítmica se mostrou eficaz para reduzir a variância e melhorar a estabilidade do modelo.
+DADOS
 
-O modelo SARIMA com log-transformação apresentou menor RMSE e MAE em comparação ao modelo sem transformação.
+Base bruta: FactInternetSales_2011_2013.csv
+Tipo: dados transacionais
+Volume: 47.670 linhas
+Período: 2011–2013
+Granularidade máxima: pedido / item / dia
 
-A previsão apresentou boa aderência visual e estatística, capturando bem as flutuações sazonais.
 
-Os resultados reforçam a importância de testar transformações matemáticas e variáveis exógenas simples para melhorar a acurácia em previsões de vendas.
+Base filtrada : vendas_diarias.csv
+Volume : 1.035 linhas , 7 variáveis
+Período: 2011–2013
+
+
 
 ____________________________________________________________________________________________________________________________________
 Ana Paula Vanderley
