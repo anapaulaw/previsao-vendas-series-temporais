@@ -37,6 +37,40 @@ Passo 2 — EDA
 
 
 
+ETAPA 3 - ENGENHARIA DE DADOS
+
+Preparar a base de dados diária para modelagem:
+
+*  Criação de variáveis dummies sazonais
+*  Verificando sazonalidade semanal e anual
+*  analiisando dependência temporal (lags)
+*  Criação de lags da variável alvo
+*  Criação de lags da quantidade (variável explicativa)
+*  Efeitos de calendário
+*  Dinâmica recente das vendas (rolling features)
+*  Definindo target principal (receita_diaria) e target secundário (qtd_diaria)
+*  Transformação da série  em log
+*  Variáveis exógenas de calendário
+*  Avaliação fora da amostra
+
+
+
+ETAPA 4 - MODELAGEM
+
+*  Definição dos parâmetros 
+*  Avaliação fora da amostra
+*  diagnóstico de resíduos
+*  Baseline Naive
+*  Variáveis exógenas
+*  Definição do modelo SARIMAX
+*  Ajuste do modelo
+*  Diagnóstico dos resíduos
+*  Previsão no espaço log
+*  Avaliação do modelo
+*  Comparação com baseline
+
+
+
 
 __________________________________________________________________________________________________________________________________
 
@@ -53,6 +87,9 @@ Base filtrada : vendas_diarias.csv
 Volume : 1.035 linhas , 7 variáveis
 Período: 2011–2013
 
+
+Base para modelagem : train_model.csv / test_model.csv
+Volume :
 
 
 ____________________________________________________________________________________________________________________________________
