@@ -1,6 +1,8 @@
-pandas
-sqlite3
-streamlit
-matplotlib
-statsmodels
-pmdarima
+Python
+Pandas / NumPy
+Statsmodels
+Scikit-learn
+Streamlit
+Joblib
+Matplotlib
+
