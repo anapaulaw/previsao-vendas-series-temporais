@@ -90,7 +90,7 @@ ________________________________________________________________________________
 ## Para visualizar a aplicação em Produção
 
 **Acesse o app interativo (Streamlit):**  
-https://SEU-LINK-DO-STREAMLIT.streamlit.app
+https://previsao-vendas-serimax.streamlit.app/
 
 No aplicativo é possível:
 - Selecionar o horizonte de previsão
