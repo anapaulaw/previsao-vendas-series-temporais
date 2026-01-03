@@ -83,13 +83,16 @@ Período: 2011–2013
 Granularidade máxima: pedido / item / dia
 
 
+
+
 Base filtrada : vendas_diarias.csv
 Volume : 1.035 linhas , 7 variáveis
-Período: 2011–2013
+
+
+
 
 
 Base para modelagem : train_model.csv / test_model.csv
-Volume :
 
 
 ____________________________________________________________________________________________________________________________________
