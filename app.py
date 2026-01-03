@@ -39,22 +39,28 @@ passos = st.sidebar.slider(
 
 
 # -----------------------------
-# Gerar exógenas futuras
+# Gerar datas futuras 
 # -----------------------------
-# Última data usada no modelo
-ultima_data = modelo.data.dates[-1]
+# Índice original da série usada no treino
+indice_treino = modelo.model.data.row_labels
 
-# Criar datas futuras
+# Última data observada
+ultima_data = pd.to_datetime(indice_treino[-1])
+
+# Datas futuras
 datas_futuras = pd.date_range(
     start=ultima_data + pd.Timedelta(days=1),
     periods=passos,
     freq="D"
 )
 
-# Criar DataFrame de exógenas
+
+# -----------------------------
+# Gerar exógenas futuras
+# -----------------------------
 exog_futuro = pd.DataFrame(index=datas_futuras)
 
-# Variáveis exógenas 
+# ⚠️ Exógenas usadas no treino
 exog_futuro["fim_de_semana"] = exog_futuro.index.weekday.isin([5, 6]).astype(int)
 exog_futuro["mes"] = exog_futuro.index.month
 
@@ -103,5 +109,6 @@ st.pyplot(fig)
 # -----------------------------
 st.subheader("📄 Valores previstos")
 st.dataframe(df_prev.round(2))
+
 
 
