@@ -76,27 +76,48 @@ ________________________________________________________________________________
 
 DADOS
 
-Base bruta: FactInternetSales_2011_2013.csv
+*  Base bruta: FactInternetSales_2011_2013.csv
 Tipo: dados transacionais
-Volume: 47.670 linhas
-Período: 2011–2013
-Granularidade máxima: pedido / item / dia
 
+*  Base filtrada : vendas_diarias.csv
+Tipo: filtrada sem duplicidade
 
-
-
-Base filtrada : vendas_diarias.csv
-Volume : 1.035 linhas , 7 variáveis
-
-
-
-
-
-Base para modelagem : train_model.csv / test_model.csv
-
+*  Base final : train_model.csv / test_model.csv
+Tipo: tratada para modelagem
 
 ____________________________________________________________________________________________________________________________________
+
+## Para visualizar a aplicação em Produção
+
+**Acesse o app interativo (Streamlit):**  
+https://SEU-LINK-DO-STREAMLIT.streamlit.app
+
+No aplicativo é possível:
+- Selecionar o horizonte de previsão
+- Visualizar intervalos de confiança
+- Analisar previsões futuras com variáveis exógenas
+
+
+## Metodologia
+
+###  Modelo
+- SARIMAX (Seasonal ARIMA com variáveis exogenas)
+- Ordem: *(exemplo)* `SARIMA(2,1,1)(0,1,0,7)`
+- Frequência: diária
+
+### Variáveis Exógenas
+- Fim de semana
+- Mês
+- Dia da semana
+- Dummies sazonais 
+
+As exógenas futuras são tratadas automaticamente no deploy.
+
+
+
+__________________________________________________________________________________________________________________________________
 Ana Paula Vanderley
+
 *  Cientista de Dados | Analista de Dados Pleno
 *  Foco em séries temporais, previsão de vendas e modelagem estatística aplicada a negócios.
 * LinkedIn  https://www.linkedin.com/in/apvanderley/
